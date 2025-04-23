@@ -49,15 +49,15 @@ def lambda_handler(event, context):
         })
 
         # プロンプト形式に変換
-        prompt_parts = []
-        for msg in messages:
-            prompt_parts.append(f"{msg['role']}: {msg['content']}")
-        prompt = "\n".join(prompt_parts)
+        #prompt_parts = []
+        #for msg in messages:
+        #    prompt_parts.append(f"{msg['role']}: {msg['content']}")
+        #prompt = "\n".join(prompt_parts)
 
         # API呼び出し用ペイロード
         request_payload = {
-            "prompt": prompt,
-            "max_new_tokens": 128,
+            "prompt": message,
+            "max_new_tokens": 512,
             "do_sample": True,
             "temperature": 0.7,
             "top_p": 0.9
