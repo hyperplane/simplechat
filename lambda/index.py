@@ -17,8 +17,8 @@ def extract_region_from_arn(arn):
 # グローバル変数としてクライアントを初期化（初期値）
 http = urllib3.PoolManager()
 
-# モデルIDは未使用になったが一応保持
-MODEL_ID = os.environ.get("MODEL_ID", "us.amazon.nova-lite-v1:0")
+# モデルID
+#MODEL_ID = os.environ.get("MODEL_ID", "us.amazon.nova-lite-v1:0")
 LLM_API_URL = os.environ.get("LLM_API_URL", "https://b3c6-34-125-90-70.ngrok-free.app/generate")
 
 def lambda_handler(event, context):
@@ -37,7 +37,7 @@ def lambda_handler(event, context):
         conversation_history = body.get('conversationHistory', [])
 
         print("Processing message:", message)
-        print("Using model (ignored in this impl):", MODEL_ID)
+        #print("Using model (ignored in this impl):", MODEL_ID)
 
         # 会話履歴を使用
         messages = conversation_history.copy()
